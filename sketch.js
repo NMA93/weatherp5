@@ -3,13 +3,19 @@ let sunrise;
 let sunset;
 let city;
 let currtemp;
+let cloud;
+let time;
 let input, button;
 let key='a74aa3fca8cf4ace9e892158191101';
 
-var img; 
+var img;
+var img1; 
+var img2;  
 
 function preload() {
     img = loadImage('assets/background_clear.png');
+    img1 = loadImage('assets/background_clouds.png');
+    img2 = loadImage('assets/background_night.png');
   }
 
 function setup() {
@@ -32,7 +38,15 @@ function setup() {
 
 function draw() {
     
-    image(img, 0,0, width, height);
+    if (cloud<49){
+      image(img, 0,0, width, height);
+    }
+
+    if (cloud>=49){
+      image(img1, 0,0, width, height);
+    }
+    
+    
 
     text("Ort: "+city, 100,70);
     text("Aktuelle Temperatur: "+currtemp, 100,100);
@@ -52,11 +66,13 @@ function reloadJson(){
 
 function gotWeather(weather) {
   city=weather.location.name;
+  time=weather.location.localtime;
   currtemp=weather.current.temp_c;
+  cloud=weather.current.cloud;
   sunrise=weather.forecast.forecastday[0].astro.sunrise;
   sunset=weather.forecast.forecastday[0].astro.sunset;
 
-  console.log(sunrise);
+  console.log(time);
 
 }
 

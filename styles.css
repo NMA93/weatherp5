@@ -14,6 +14,7 @@ input {
     width: 270px;
     border-radius: 10px;
     border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 30px;
     font-weight: 600;
     color: #333333;
@@ -21,11 +22,11 @@ input {
 }
 
 button {
-    height: 60px ;
+    height: 65px ;
     width: 89px;
     border-radius: 10px;
-    border: 1px;
-    border-color: #333333;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #4A90E2;
     font-size: 30px;
     font-weight: 600;
