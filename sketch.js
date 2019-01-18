@@ -1,9 +1,9 @@
-//Variablen definieren
-//Mit Werten gefüllt werden diese in der Funktion gotWeather
+//Variablen
 let sunrise;
 let sunset;
 let city;
 let currtemp;
+let input, button;
 let key='a74aa3fca8cf4ace9e892158191101';
 
 function setup() {
@@ -13,9 +13,14 @@ function setup() {
     let url = 'https://api.apixu.com/v1/forecast.json?key='+key+'&q=Zürich&days=1';
     //https://api.apixu.com/v1/forecast.json?key=a74aa3fca8cf4ace9e892158191101&q=Zürich&days=1//
 
-  //Dokumentation
-    // https://www.apixu.com/doc/forecast.aspx
-  loadJSON(url, gotWeather);
+    input = createInput();
+    input.position(15,620);
+
+    button=createButton('OK');
+    button.position(input.x + input.width+10, 620);
+    button.mousePressed(reloadJson);
+
+    loadJSON(url, gotWeather);
 
 }
 
@@ -26,6 +31,13 @@ function draw() {
   text("Sonnenaufgang ist um "+sunrise, 100,130);
   text("Sonnenuntergang ist um "+sunset, 100, 160);
 
+}
+
+function reloadJson(){
+    let ort = input.value();
+    let url = 'https://api.apixu.com/v1/forecast.json?key='+key+'&q='+ort+'&days=1';
+
+    loadJSON(url, gotWeather);
 }
 
 function gotWeather(weather) {

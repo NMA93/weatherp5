@@ -1,0 +1,32 @@
+body {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    font-family:"Helvetica";
+    line-height:140%;
+}
+canvas {
+    margin:auto;
+}
+
+input {
+    height: 60px ;
+    width: 270px;
+    border-radius: 10px;
+    border: none;
+    font-size: 30px;
+    font-weight: 600;
+    color: #333333;
+    padding-left: 10px;
+}
+
+button {
+    height: 60px ;
+    width: 89px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4A90E2;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
