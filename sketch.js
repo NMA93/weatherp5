@@ -9,12 +9,12 @@ let key='a74aa3fca8cf4ace9e892158191101';
 var img; 
 
 function preload() {
-    img = loadImage('https://github.com/NMA93/weatherp5/blob/master/assets/background_clear.png');
+    img = loadImage('assets/background_clear.png');
   }
 
 function setup() {
   createCanvas(414, 700);
-  image(img, 0,0, width, height);
+  
 
 
     let url = 'https://api.apixu.com/v1/forecast.json?key='+key+'&q=Zürich&days=1';
@@ -31,14 +31,15 @@ function setup() {
 }
 
 function draw() {
-
+    
+    image(img, 0,0, width, height);
 
     text("Ort: "+city, 100,70);
     text("Aktuelle Temperatur: "+currtemp, 100,100);
     text("Sonnenaufgang ist um "+sunrise, 100,130);
     text("Sonnenuntergang ist um "+sunset, 100, 160);
 
-    setup();
+   
 
 }
 
