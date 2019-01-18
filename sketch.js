@@ -8,6 +8,10 @@ let key='a74aa3fca8cf4ace9e892158191101';
 
 var img; 
 
+function preload() {
+    img = loadImage('https://github.com/NMA93/weatherp5/blob/master/assets/background_clear.png');
+  }
+
 function setup() {
   createCanvas(414, 700);
   img = createImg('https://github.com/NMA93/weatherp5/blob/master/assets/background_clear.png');
@@ -27,7 +31,7 @@ function setup() {
 }
 
 function draw() {
-    
+
     image(img, 0,0);
 
     text("Ort: "+city, 100,70);
