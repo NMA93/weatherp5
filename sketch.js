@@ -27,13 +27,13 @@ function setup() {
 }
 
 function draw() {
+    
     image(img, 0,0);
-    background(86, 150, 169);
 
-  text("Ort: "+city, 100,70);
-  text("Aktuelle Temperatur: "+currtemp, 100,100);
-  text("Sonnenaufgang ist um "+sunrise, 100,130);
-  text("Sonnenuntergang ist um "+sunset, 100, 160);
+    text("Ort: "+city, 100,70);
+    text("Aktuelle Temperatur: "+currtemp, 100,100);
+    text("Sonnenaufgang ist um "+sunrise, 100,130);
+    text("Sonnenuntergang ist um "+sunset, 100, 160);
 
 }
 
