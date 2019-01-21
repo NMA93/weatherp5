@@ -42,7 +42,7 @@ function draw() {
     if (cloud<49){
       image(img, 0,0, width, height);
     }
-
+    
     if (cloud>=49){
       image(img1, 0,0, width, height);
     }
@@ -52,7 +52,7 @@ function draw() {
     if(weatherdays.length>0){
       drawPosition1();
   }
-  
+
     // drawPosition2();
     // drawPosition3();
       
