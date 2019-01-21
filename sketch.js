@@ -48,7 +48,11 @@ function draw() {
     }
     
     drawPosition0();
-    drawPosition1();
+
+    if(weatherdays.length>0){
+      drawPosition1();
+  }
+  
     // drawPosition2();
     // drawPosition3();
       
