@@ -42,12 +42,13 @@ function setup() {
 function draw() {
     
 
-    if (cloud<=49){
-      image(img1, 0,0, width, height);
+
+    if (cloud<40){
+      image(img, 0,0, width, height);
     }
 
-    if (cloud<30){
-      image(img, 0,0, width, height);
+    if (cloud<=49){
+      image(img1, 0,0, width, height);
     }
 
     if (cloud>=49){
