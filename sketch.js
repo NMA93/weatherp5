@@ -17,8 +17,8 @@ var img2;
 
 function preload() {
     img = loadImage('assets/background_clear.png');
-    img1 = loadImage('assets/background_clouds.png');
-    img2 = loadImage('assets/background_night.png');
+    img1 = loadImage('assets/background_light_clouds.png');
+    img2 = loadImage('assets/background_clouds.png');
   }
 
 function setup() {
@@ -41,12 +41,16 @@ function setup() {
 
 function draw() {
     
-    if (cloud<49){
+    if (cloud<20){
       image(img, 0,0, width, height);
     }
 
-    if (cloud>=49){
+    if (cloud<49){
       image(img1, 0,0, width, height);
+    }
+
+    if (cloud>=49){
+      image(img2, 0,0, width, height);
     }
     
     drawPosition0();
