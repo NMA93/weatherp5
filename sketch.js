@@ -191,7 +191,7 @@ function gotWeather(weather) {
   rain=weather.forecast.forecastday;
   wind=weather.forecast.forecastday;
   
-  console.log(weatherdays[1].day.maxwind_kph);
+  console.log(weather.current.cloud);
 
 }
 
