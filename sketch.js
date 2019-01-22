@@ -41,7 +41,7 @@ function setup() {
 
 function draw() {
     
-    if (cloud<=20){
+    if (cloud<=30){
       image(img, 0,0, width, height);
     }
 
