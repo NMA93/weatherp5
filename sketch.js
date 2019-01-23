@@ -10,19 +10,25 @@ let key='a74aa3fca8cf4ace9e892158191101';
 let weatherdays=[];
 let rain=[];
 let wind=[];
+let NORMAL;
+let BOLD;
 
 var img;
 var img1; 
-var img2;  
+var img2;
 
 function preload() {
     img = loadImage('assets/background_clear.png');
     img1 = loadImage('assets/background_light_clouds.png');
     img2 = loadImage('assets/background_clouds.png');
+    NORMAL = loadFont('assets/Sarabun-Regular.otf');
+    BOLD = loadFont('assets/Sarabun-Bold.otf');
   }
 
 function setup() {
   createCanvas(414, 700);
+
+    textFont(NORMAL);
   
   
     let url = 'https://api.apixu.com/v1/forecast.json?key='+key+'&q=Zürich&days=4';
@@ -75,7 +81,11 @@ function draw() {
       drawPosition1();
       drawPosition2();
       drawPosition3();
-    }      
+    }
+
+    drawLegend1();
+    drawLegend2();
+    
 }
 
 
@@ -83,19 +93,23 @@ function draw() {
 //Positions
 
 function drawPosition0(){
-
+  fill(0)
+  textFont(BOLD);
   textSize(30);
   text("Ort: "+city,120, 70);
+  textFont(BOLD);
   textSize(16);
   text("Datum: "+time, 120, 100);
+  textFont(NORMAL);
   text("Aktuelle Temperatur: "+currtemp, 120,130);
-
 }
 
 function drawPosition1(){
   textSize(16);
   fill(0)
+  textFont(BOLD);
   text("Datum: "+weatherdays[1].date, 120, 210);
+  textFont(NORMAL);
   text("Max. Temperatur: "+weatherdays[1].day.maxtemp_c, 120,230);
   text("Max. Temperatur: "+weatherdays[1].day.mintemp_c, 120,250);
 }
@@ -103,7 +117,9 @@ function drawPosition1(){
 function drawPosition2(){
   fill(0)
   textSize(16);
+  textFont(BOLD);
   text("Datum: "+weatherdays[2].date, 120, 320);
+  textFont(NORMAL);
   text("Max. Temperatur: "+weatherdays[2].day.maxtemp_c, 120, 340);
   text("Max. Temperatur: "+weatherdays[2].day.mintemp_c, 120, 360); 
 }
@@ -111,7 +127,9 @@ function drawPosition2(){
 function drawPosition3(){
   fill(0)
   textSize(16);
+  textFont(BOLD);
   text("Datum: "+weatherdays[3].date, 120, 430);
+  textFont(NORMAL);
   text("Max. Temperatur: "+weatherdays[3].day.maxtemp_c, 120, 450);
   text("Max. Temperatur: "+weatherdays[3].day.mintemp_c, 120, 470);   
 }
@@ -167,6 +185,25 @@ function drawWind3(){
   fill(255,255,255,100);
   noStroke();
   ellipse(50,450, wind[3].day.maxwind_kph*5, wind[3].day.maxwind_kph*5);
+}
+
+function drawLegend1(){
+  fill(0)
+  textFont(NORMAL);
+  text("Niederschlag ", 140, 555);
+  fill(0,0,255,100);
+  noStroke();
+  ellipse(120,550, 15, 15);
+}
+
+
+function drawLegend2(){
+  fill(0)
+  textFont(NORMAL);
+  text("Windstärke ", 270, 555);
+  fill(255,255,255,100);
+  noStroke();
+  ellipse(250,550, 15, 15);
 }
 
 
