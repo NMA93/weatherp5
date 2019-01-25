@@ -29,10 +29,6 @@ function preload() {
 function setup() {
   createCanvas(414, 700);
 
-    from=(114, 217, 255, 100);
-    to=((255, 117, 96), 100);
-
-
     textFont(NORMAL);
   
     let url = 'https://api.apixu.com/v1/forecast.json?key='+key+'&q=Zürich&days=4';
@@ -104,7 +100,7 @@ function drawPosition0(){
   textSize(16);
   text("Datum: "+time, 150, 100);
   textFont(NORMAL);
-  text("Aktuelle Temperatur: "+currtemp, 170,130);
+  text("Aktuelle Temperatur: "+currtemp, 150,130);
 }
 
 function drawPosition1(){
