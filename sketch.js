@@ -5,6 +5,7 @@ let city;
 let currtemp;
 let cloud;
 let time;
+let night;
 let input, button;
 let key='a74aa3fca8cf4ace9e892158191101';
 let weatherdays=[];
@@ -17,11 +18,13 @@ let BOLD;
 var img;
 var img1; 
 var img2;
+var img3;
 
 function preload() {
     img = loadImage('assets/background_clear.png');
     img1 = loadImage('assets/background_light_clouds.png');
     img2 = loadImage('assets/background_clouds.png');
+    img3 = loadImage('assets/background_night.png');
     NORMAL = loadFont('assets/Sarabun-Regular.otf');
     BOLD = loadFont('assets/Sarabun-Bold.otf');
   }
@@ -47,7 +50,13 @@ function setup() {
 
 function draw() {
 
+  //console.log(night);
 
+  if (night==0){
+    image(img3, 0,0, width, height);
+  }
+  
+  else {
     if (cloud<40){
       image(img, 0,0, width, height);
     }
@@ -59,6 +68,9 @@ function draw() {
     if (cloud>=69){
       image(img2, 0,0, width, height);
     }
+  }
+
+    
     
     drawPosition0();
 
@@ -92,7 +104,14 @@ function draw() {
 //Positions
 
 function drawPosition0(){
-  fill(0)
+
+  if (night==0){
+    fill(255);
+  }
+  else {
+    fill(0);
+    }
+  
   textFont(BOLD);
   textSize(30);
   text(""+city,150, 70);
@@ -105,7 +124,14 @@ function drawPosition0(){
 
 function drawPosition1(){
   textSize(16);
-  fill(0)
+
+  if (night==0){
+    fill(255);
+  }
+  else {
+    fill(0);
+    }
+
   textFont(BOLD);
   text("Datum: "+weatherdays[1].date, 150, 210);
   textFont(NORMAL);
@@ -114,7 +140,14 @@ function drawPosition1(){
 }
 
 function drawPosition2(){
-  fill(0)
+  
+  if (night==0){
+    fill(255);
+  }
+  else {
+    fill(0);
+    }
+
   textSize(16);
   textFont(BOLD);
   text("Datum: "+weatherdays[2].date, 150, 320);
@@ -124,7 +157,14 @@ function drawPosition2(){
 }
 
 function drawPosition3(){
-  fill(0)
+
+    if (night==0){
+    fill(255);
+  }
+  else {
+    fill(0);
+    }
+
   textSize(16);
   textFont(BOLD);
   text("Datum: "+weatherdays[3].date, 150, 430);
@@ -187,7 +227,14 @@ function drawWind3(){
 }
 
 function drawLegend1(){
-  fill(0)
+
+  if (night==0){
+    fill(255);
+  }
+  else {
+    fill(0);
+    }
+
   textFont(NORMAL);
   text("Niederschlag ", 170, 555);
   fill(74, 144, 226,100);
@@ -197,7 +244,14 @@ function drawLegend1(){
 
 
 function drawLegend2(){
-  fill(0)
+
+    if (night==0){
+    fill(255);
+  }
+  else {
+    fill(0);
+    }
+
   textFont(NORMAL);
   text("Windstärke ", 170, 585);
   fill(255,255,255,100);
@@ -226,7 +280,8 @@ function gotWeather(weather) {
   weatherdays=weather.forecast.forecastday;
   rain=weather.forecast.forecastday;
   wind=weather.forecast.forecastday;
+  night=weather.current.is_day;
 
-  // console.log (cloud);
+  //console.log(is_day);
 
 }
