@@ -13,10 +13,6 @@ let wind=[];
 let NORMAL;
 let BOLD;
 
-let from;
-let to;
-
-
 //Pictures
 var img;
 var img1; 
@@ -69,7 +65,6 @@ function draw() {
     }
     
     drawPosition0();
-    // drawTempcircle();
 
     if(wind.length>0){
       drawWind0();
@@ -213,16 +208,6 @@ function drawLegend2(){
   noStroke();
   ellipse(150,580, 15, 15);
 }
-
-// function drawTempcircle(){
-//   noStroke();
-//   let maxTemp = currtemp;
-//   let stepMaxTemp = map(maxTemp, -15, 35, 0, 1);
-//   let maxColor = lerpColor(from, to, stepMaxTemp);
-//   fill(maxColor);
-//   ellipse(150,124, 15, 15);
-// }
-
 
 //Reload
 
